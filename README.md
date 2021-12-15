@@ -5,6 +5,6 @@ To play binary file should be in the same folder with font and sound files. You 
 
 ![alt text](https://github.com/destroy-data/Cpp-Pong/blob/main/screenshot.png)
 
-TODO:
+TODO:<br />
 Add cmake file<br />
 Add Windows Binary
