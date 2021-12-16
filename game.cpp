@@ -49,7 +49,7 @@ void Game::handleBall(Gamer& gamer0, Gamer& gamer1) {
             nextServe(gamer0, gamer1);
             normalizeBallMovement();
         }
-        if ((ball.getPosition().x>=1245 && ballMovement.direction>0 && ballMovement.direction<180) || ball.getPosition().x>=1250)
+        else if ((ball.getPosition().x>=1245 && ballMovement.direction>0 && ballMovement.direction<180) || ball.getPosition().x>=1250)
         {
             gamer0.addPoint();
             nextServe(gamer0, gamer1);
@@ -58,19 +58,17 @@ void Game::handleBall(Gamer& gamer0, Gamer& gamer1) {
 
         //Reflections from pallets
         if(fabs(ball.getPosition().x -20 - gamer0.getPosition().x)<=3 && ball.getPosition().y +10>= gamer0.getPosition().y  &&
-            ball.getPosition().y -10 <= gamer0.getPosition().y + gamer0.getSize().y)
-            if(ballMovement.direction>180 && ballMovement.direction<360)
-            {
-                    ballMovement.direction=360-ballMovement.direction*(1+(ball.getPosition().y- gamer0.getPosition().y - gamer0.getSize().y/2)/gamer0.getSize().y*ballMovement.palletReflectionFactor);
-                    reflection.play();
-            }
+            ball.getPosition().y -10 <= gamer0.getPosition().y + gamer0.getSize().y && ballMovement.direction>180 && ballMovement.direction<360)
+        {
+            ballMovement.direction=360-ballMovement.direction*(1+(ball.getPosition().y- gamer0.getPosition().y - gamer0.getSize().y/2)/gamer0.getSize().y*ballMovement.palletReflectionFactor);
+            reflection.play();
+        }
         if(fabs(ball.getPosition().x +10 - gamer1.getPosition().x)<=3 && ball.getPosition().y +10 >= gamer1.getPosition().y  &&
-            ball.getPosition().y -10 <= gamer1.getPosition().y + gamer1.getSize().y)
-            if(ballMovement.direction>0 && ballMovement.direction<180)
-            {
-                    ballMovement.direction=360-ballMovement.direction*(1+(ball.getPosition().y- gamer1.getPosition().y - gamer1.getSize().y/2)/gamer1.getSize().y*ballMovement.palletReflectionFactor);
-                    reflection.play();
-            }
+            ball.getPosition().y -10 <= gamer1.getPosition().y + gamer1.getSize().y && ballMovement.direction>0 && ballMovement.direction<180)
+        {
+            ballMovement.direction=360-ballMovement.direction*(1+(ball.getPosition().y- gamer1.getPosition().y - gamer1.getSize().y/2)/gamer1.getSize().y*ballMovement.palletReflectionFactor);
+            reflection.play();
+        }
         //Reflections from sides of pallets
         if(fabs(ball.getPosition().y +10 - gamer0.getPosition().y)<=3 && ball.getPosition().x -10 <= gamer0.getPosition().x
             && ballMovement.direction>180 && ballMovement.direction<270)

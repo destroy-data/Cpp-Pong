@@ -12,7 +12,7 @@ Gamer::Gamer(int number): GamerNumber(number), points(0){
         pallet.setPosition(35, 360-pallet.getSize().y/2);
         t_points.setPosition(600-t_points.getGlobalBounds().width,50);
     }
-    if(GamerNumber==1) {
+    else if(GamerNumber==1) {
         pallet.setPosition(1235, 360-pallet.getSize().y/2);
         t_points.setPosition(680,50);
     }
@@ -50,7 +50,7 @@ void Gamer::addPoint(){
     t_points.setString(intToString(points));
     if(GamerNumber==0)
         t_points.setPosition(600-t_points.getGlobalBounds().width,50);
-    if(GamerNumber==1)
+    else if(GamerNumber==1)
         t_points.setPosition(680,50);
 }
 
@@ -69,7 +69,7 @@ void Gamer::reset(){
         pallet.setPosition(35, 360-pallet.getSize().y/2);
         t_points.setPosition(600-t_points.getGlobalBounds().width,50);
     }
-    if(GamerNumber==1) {
+    else if(GamerNumber==1) {
         pallet.setPosition(1235, 360-pallet.getSize().y/2);
         t_points.setPosition(680,50);
     }
