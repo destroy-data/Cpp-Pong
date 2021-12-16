@@ -49,7 +49,7 @@ void Game::handleBall(Gamer& gamer0, Gamer& gamer1) {
             nextServe(gamer0, gamer1);
             normalizeBallMovement();
         }
-        else if ((ball.getPosition().x>=1245 && ballMovement.direction>0 && ballMovement.direction<180) || ball.getPosition().x>=1250)
+        if ((ball.getPosition().x>=1245 && ballMovement.direction>0 && ballMovement.direction<180) || ball.getPosition().x>=1250)
         {
             gamer0.addPoint();
             nextServe(gamer0, gamer1);
@@ -64,7 +64,7 @@ void Game::handleBall(Gamer& gamer0, Gamer& gamer1) {
                     ballMovement.direction=360-ballMovement.direction*(1+(ball.getPosition().y- gamer0.getPosition().y - gamer0.getSize().y/2)/gamer0.getSize().y*ballMovement.palletReflectionFactor);
                     reflection.play();
             }
-        else if(fabs(ball.getPosition().x +10 - gamer1.getPosition().x)<=3 && ball.getPosition().y +10 >= gamer1.getPosition().y  &&
+        if(fabs(ball.getPosition().x +10 - gamer1.getPosition().x)<=3 && ball.getPosition().y +10 >= gamer1.getPosition().y  &&
             ball.getPosition().y -10 <= gamer1.getPosition().y + gamer1.getSize().y)
             if(ballMovement.direction>0 && ballMovement.direction<180)
             {
@@ -79,7 +79,7 @@ void Game::handleBall(Gamer& gamer0, Gamer& gamer1) {
             && ballMovement.direction>270 && ballMovement.direction<360)
                 ballMovement.direction=180-ballMovement.direction;
 
-        else if(fabs(ball.getPosition().y +10 - gamer1.getPosition().y)<=3 && ball.getPosition().x +10 >= gamer1.getPosition().x
+        if(fabs(ball.getPosition().y +10 - gamer1.getPosition().y)<=3 && ball.getPosition().x +10 >= gamer1.getPosition().x
             && ballMovement.direction>90 && ballMovement.direction<180)
                 ballMovement.direction=180-ballMovement.direction;
         else if(fabs(ball.getPosition().y -10 - (gamer1.getPosition().y + gamer1.getSize().y))<=3 && ball.getPosition().x +10 >= gamer1.getPosition().x
